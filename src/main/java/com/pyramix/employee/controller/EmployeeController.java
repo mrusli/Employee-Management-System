@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pyramix.employee.model.Employee;
 import com.pyramix.employee.services.EmployeeService;
 
+/**
+ * @author mrusli
+ *
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
