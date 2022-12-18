@@ -20,7 +20,7 @@ import com.pyramix.employee.services.EmployeeService;
 
 /**
  * @author mrusli
- *
+ * @version
  */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
