@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pyramix.employee.model.Employee;
+import com.pyramix.employee.model.Employee02;
+import com.pyramix.employee.services.Employee02Service;
 import com.pyramix.employee.services.EmployeeService;
 
-/**
- * @author mrusli
- * @version
- */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
 
 	private EmployeeService employeeService;
-
-	public EmployeeController(EmployeeService employeeService) {
+	private Employee02Service employee02Service;
+	
+	public EmployeeController(EmployeeService employeeService, Employee02Service employee02Service) {
 		this.setEmployeeService(employeeService);
+		this.setEmployee02Service(employee02Service);
 	}
 
 	@PostMapping("/employees")
@@ -43,6 +43,12 @@ public class EmployeeController {
 	public List<Employee> getAllEmployees() {
 		
 		return employeeService.getAllEmployees();
+	}
+	
+	@GetMapping("/employees02")
+	public List<Employee02> getAllEmployees02() {
+		
+		return getEmployee02Service().getAllEmployees02();
 	}
 	
 	@DeleteMapping("/employees/{id}")
@@ -77,6 +83,14 @@ public class EmployeeController {
 
 	public void setEmployeeService(EmployeeService employeeService) {
 		this.employeeService = employeeService;
+	}
+
+	public Employee02Service getEmployee02Service() {
+		return employee02Service;
+	}
+
+	public void setEmployee02Service(Employee02Service employee02Service) {
+		this.employee02Service = employee02Service;
 	}
 	
 }
